@@ -1,0 +1,25 @@
+{
+  "name": "laravel-asset",
+  "version": "1.0.0",
+  "description": "A helper to resolve paths to assets in a Laravel app",
+  "main": "asset.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codinglabs/laravel-asset.git"
+  },
+  "keywords": [
+    "laravel",
+    "mix",
+    "asset",
+    "vuejs"
+  ],
+  "author": "Steve Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codinglabs/laravel-asset/issues"
+  },
+  "homepage": "https://github.com/codinglabs/laravel-asset#readme"
+}
