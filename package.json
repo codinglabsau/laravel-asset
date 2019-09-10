@@ -14,7 +14,9 @@
     "laravel",
     "mix",
     "asset",
-    "vuejs"
+    "vuejs",
+    "vapor",
+    "dotenv"
   ],
   "author": "Steve Thomas",
   "license": "MIT",
