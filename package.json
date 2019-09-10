@@ -1,5 +1,5 @@
 {
-  "name": "laravel-asset",
+  "name": "@codinglabs/laravel-asset",
   "version": "1.0.0",
   "description": "A helper to resolve paths to assets in a Laravel app",
   "main": "asset.js",
