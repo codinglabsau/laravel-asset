@@ -7,5 +7,5 @@ export const asset = (path) => {
         prefix = document.head.querySelector('meta[name="asset-url"]').content
     }
 
-    return prefix + '/' + path.replace(/^\/+/, '')
+    return prefix.replace(/\/+$/, '') + '/' + path.replace(/^\/+/, '')
 }
