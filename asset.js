@@ -1,6 +1,6 @@
 export const asset = (path) => {
-    // default to MIX_ASSET_URL
-    let prefix = process.env.MIX_ASSET_URL
+    // default to VITE_ASSET_URL
+    let prefix = process.env.VITE_ASSET_URL
 
     if (!prefix) {
         // fallback to determining ASSET_URL from meta tag

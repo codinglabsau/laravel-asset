@@ -6,46 +6,56 @@ This package provides a helper to generate paths to assets on the client-side th
 npm install @codinglabs/laravel-asset --save
 ```
 
-Vue.js example: 
+Vue 3 global mixin: 
 ``` javascript
-import {asset} from '@codinglabs/laravel-asset'
+import { asset } from '@codinglabs/laravel-asset'
 
-window.Vue = require('vue')
+return createApp({ render: () => h(app, props) })
+    // ...
+    .mixin({
+        methods: {
+            asset,
+        },
+    })
+```
 
-Vue.mixin({
-    methods: {
-        asset: asset
-    }
-})
+Vue 3 component example: 
+``` vue
+<script setup>
+    import { asset } from '@codinglabs/laravel-asset'
+</script>
+
+<template>
+    <img :src="asset('path/to/foo.jpg')">
+</template>
 ```
 
 ## Usage
-The package can be configured with a mix `.env` variable: 
+The asset prefix can be configured with an environment variable, or by setting an asset path on the server side in the document metadata. 
+
+If the asset url is unknown when building the app (ie. Laravel Vapor, where the asset URL is not generated until the deploy step), the metadata option can be used.
+
+To configure with an `.env` variable: 
 
 ```
 ASSET_URL=https://foo.cloudfront.net
-MIX_ASSET_URL="${ASSET_URL}"
+VITE_ASSET_URL="${ASSET_URL}"
 ```
 
-Or by adding a meta tag, which is handy if the `ASSET_URL` is determined at deployment time (like with Laravel Vapor):
+To configure with a meta tag in Laravel Blade:
 
 ```html
 <meta name="asset-url" content="{{ config('app.asset_url') }}">
 ```
 
-
-To inject an asset into a Vuejs component, use a [dynamic prop](https://vuejs.org/v2/guide/components-props.html#Passing-Static-or-Dynamic-Props):
+Once configured, simply call the `asset()` helper like you would when using the Laravel helper:
 
 ```html
 <img :src="asset('path/to/foo.jpg')">
 ```
 
-This will be prefixed with the asset URL the same as how the Laravel `asset()` helper works.
-
-If you need to conditionally build against a specific environment file, take a look at [mix-env-file](https://github.com/johnwilhite/mix-env-file). 
-
 ## About Coding Labs
-Coding Labs is a web app development agency based on the Gold Coast, Australia. See our open source projects [on our website](https://codinglabs.io).
+Coding Labs is a web app development agency based on the Gold Coast, Australia. See our open source projects [on our website](https://codinglabs.com.au).
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
