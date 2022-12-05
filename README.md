@@ -1,6 +1,10 @@
 # Laravel Asset Helper
 This package provides a helper to generate paths to assets on the client-side the same as in Laravel with `asset('foo.jpg')`.
 
+Notices: 
+- This package works best with Laravel Mix; if you are using Vite, you should [bundle assets](https://laravel.com/docs/9.x/vite#blade-processing-static-assets) in the `resources` directory instead
+- There is also an official asset helper for [Laravel Vapor](https://docs.vapor.build/1.0/projects/deployments.html#asset)
+
 ## Install
 ``` bash
 npm install @codinglabs/laravel-asset --save
@@ -39,7 +43,7 @@ To configure with an `.env` variable:
 
 ```
 ASSET_URL=https://foo.cloudfront.net
-VITE_ASSET_URL="${ASSET_URL}"
+MIX_ASSET_URL="${ASSET_URL}"
 ```
 
 To configure with a meta tag in Laravel Blade:
